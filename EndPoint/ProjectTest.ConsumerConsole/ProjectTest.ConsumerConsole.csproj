@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\01.FrameWork\ProjectTest.Rabbit.Bus\ProjectTest.Rabbit.Bus.csproj" />
+    <ProjectReference Include="..\..\03.CoreDomain\ProjectTest.CoreDomain\ProjectTest.CoreDomain.csproj" />
+    <ProjectReference Include="..\..\Infrastracture\Infastracture.RabbitMq\Infastracture.RabbitMq.csproj" />
+  </ItemGroup>
+
+</Project>

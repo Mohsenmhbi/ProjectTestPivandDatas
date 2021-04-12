@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\01.FrameWork\ProjectTest.Rabbit.Bus\ProjectTest.Rabbit.Bus.csproj" />
+    <ProjectReference Include="..\..\Infrastracture\Infastracture.RabbitMq\Infastracture.RabbitMq.csproj" />
+    <ProjectReference Include="..\..\Infrastracture\ProjectTest.Infastracture.Query\ProjectTest.Infastracture.Query.csproj" />
+    <ProjectReference Include="..\..\Infrastracture\ProjectTest.Infrastracture\ProjectTest.Infrastracture.csproj" />
+    <ProjectReference Include="..\..\ProjectTest.ApplicationService\ProjectTest.ApplicationService.csproj" />
+    <ProjectReference Include="..\..\ProjectTest.Tools\ProjectTest.Tools.csproj" />
+  </ItemGroup>
+
+
+</Project>
