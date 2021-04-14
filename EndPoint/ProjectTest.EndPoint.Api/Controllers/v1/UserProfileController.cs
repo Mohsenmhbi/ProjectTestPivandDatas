@@ -18,7 +18,7 @@ namespace ProjectTest.EndPoint.Api.Controllers.v1
         }
 
         [HttpPost(Name =nameof(RegisterUser))]
-        public IActionResult RegisterUser([FromServices] RegisterUserHandler handler, RegisterUserProfile request)
+        public IActionResult RegisterUser(RegisterUserProfile request)
         {
             _mediator.Send(request);
             return Ok();

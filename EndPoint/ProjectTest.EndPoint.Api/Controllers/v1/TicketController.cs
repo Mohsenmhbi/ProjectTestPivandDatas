@@ -21,7 +21,7 @@ namespace ProjectTest.EndPoint.Api.Controllers.v1
             _mediator = mediator;
         }
         [HttpPost(Name = nameof(RegisterTicket))]
-        public IActionResult RegisterTicket([FromServices] CreateTicketHandler handler, CreateTicket request)
+        public IActionResult RegisterTicket( CreateTicket request)
         {
             _mediator.Send(request);
             return Ok();

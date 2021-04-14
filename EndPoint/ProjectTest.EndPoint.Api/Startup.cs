@@ -1,5 +1,6 @@
 using System.Data.SqlClient;
 using System.Reflection;
+using FluentValidation.AspNetCore;
 using Infastracture.RabbitMq;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjectTest.ApplicationService.TicketUser.Commands;
 using ProjectTest.ApplicationService.TicketUser.Handlers;
 using ProjectTest.ApplicationService.UserProfiles.Handlers;
 using ProjectTest.CoreDomain.TicketUser.Data;
@@ -36,7 +38,7 @@ namespace ProjectTest.EndPoint.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(c=>c.RegisterValidatorsFromAssemblyContaining<CreateTicket>());
             services.AddMediatR(typeof(RegisterUserHandler).GetTypeInfo().Assembly);
             services.Configure<SiteSettings>(Configuration.GetSection(nameof(SiteSettings)));
             services.AddScoped<IUserProfileRepository, UserProfileRepository>();
