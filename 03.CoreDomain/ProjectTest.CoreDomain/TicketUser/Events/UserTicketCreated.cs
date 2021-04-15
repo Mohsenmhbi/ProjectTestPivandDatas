@@ -7,9 +7,16 @@ namespace ProjectTest.CoreDomain.TicketUser.Events
 {
     public class UserTicketCreated:IEvent
     {
-        public int UserSenderId { get; set; }
-        public int UserResiveId { get; set; }
-        public DateTime CeateDate { get; set; }
+        public UserTicketCreated(int userSenderId, int userResiveId, DateTime ceateDate)
+        {
+            UserSenderId = userSenderId;
+            UserResiveId = userResiveId;
+            CeateDate = ceateDate;
+        }
+
+        public int UserSenderId { get;  }
+        public int UserResiveId { get; }
+        public DateTime CeateDate { get; }
   
 
     }

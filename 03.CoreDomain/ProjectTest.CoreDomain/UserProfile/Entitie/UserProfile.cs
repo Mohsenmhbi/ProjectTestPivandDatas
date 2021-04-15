@@ -3,13 +3,10 @@ using ProjectTest.CoreDomain.UserProfile.ValueObjects;
 using ProjectTest.FrameWork.Entieis;
 using ProjectTest.FrameWork.Events;
 using ProjectTest.FrameWork.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProjectTest.CoreDomain.UserProfile.Entitie
 {
-   public class UserProfile: BaseAggregateRoot<int>
+    public class UserProfile: BaseAggregateRoot<int>
     {
         #region Fields
         public FirstName FirstName { get; private set; }
@@ -32,12 +29,11 @@ namespace ProjectTest.CoreDomain.UserProfile.Entitie
                         )
         {
             HandleEvent(new UserRegistered
-            {
-               
-                FirstName = firstName,
-                LastName = lastName,
-                Email= email
-            });
+
+                (firstName,
+                lastName,
+                 email));
+         
         }
         #endregion
 

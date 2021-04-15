@@ -12,9 +12,10 @@ namespace ProjectTest.CoreDomain.TicketUser.Entitie
     public class Ticket: BaseAggregateRoot<int>
     {
         public Title Title { get;private set; }
+        private HashSet<UserTicket> userTickets = new HashSet<UserTicket>();
         public string Description { get;private set; }
-        public IList<UserTicket> Chates { get; private set; }
-      
+        public IReadOnlyCollection<UserTicket> Chates => userTickets;
+
 
         #region Costructurs
         private Ticket() { }
@@ -34,17 +35,14 @@ namespace ProjectTest.CoreDomain.TicketUser.Entitie
                 Description = description,
             });
 
-            Chates = new List<UserTicket>();
+  
             var newChate = new UserTicket(HandleEvent);
 
-            newChate.HandleEvent(new UserTicketCreated
-            {
-                UserSenderId = userSenderId,
-                UserResiveId = userResiveId,
-                CeateDate = DateTime.Now
-              
-            }) ;
-            Chates.Add(newChate);
+            newChate.HandleEvent(new  UserTicketCreated
+                (userSenderId,
+                 userResiveId,
+                 DateTime.Now));
+            userTickets.Add(newChate);
          
           
         }
