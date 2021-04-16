@@ -32,12 +32,7 @@ namespace ProjectTest.ApplicationService.TicketUser.Handlers
 
         public async Task<bool> Handle(CreateTicket request, CancellationToken cancellationToken)
         {
-            if (!_userProfileRepository.Exists(request.UserSenderId))
-                throw new InvalidOperationException($"قبلا کاربری با شناسه {request.UserSenderId} ثبت شده است.");
-           
-            if (!_userProfileRepository.Exists(request.UserResiveId))
-                throw new InvalidOperationException($"قبلا کاربری با شناسه {request.UserResiveId} ثبت شده است.");
-
+       
             Ticket tickets = new Ticket(
             Title.FromString(request.Title),
              request.Description,

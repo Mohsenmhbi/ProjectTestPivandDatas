@@ -14,4 +14,8 @@
     <ProjectReference Include="..\03.CoreDomain\ProjectTest.CoreDomain\ProjectTest.CoreDomain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UserProfiles\Commands\Validator\" />
+  </ItemGroup>
+
 </Project>

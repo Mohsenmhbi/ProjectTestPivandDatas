@@ -3,6 +3,7 @@ using ProjectTest.CoreDomain.UserProfile.Entitie;
 using ProjectTest.Infrastracture.Context;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ProjectTest.Infrastracture.Repository
 {
@@ -28,7 +29,7 @@ namespace ProjectTest.Infrastracture.Repository
 
         public bool Exists(int id)
         {
-            return _context.userProfiles.Any(c => c.Id == id);
+            return _context.userProfiles.Any(c=>c.Id==id);
         }
 
         public UserProfile Load(Guid id)
